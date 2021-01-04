@@ -7,6 +7,31 @@ export default function App() {
     lastName: '',
     email: '',
   });
+
+  const handleFirstNameInputChange = (event) => {
+    event.persist();
+    setValues((values) => ({
+      ...values,
+      firstName: event.target.value,
+    }));
+  };
+
+  const handleLastNameInputChange = (event) => {
+    event.persist();
+    setValues((values) => ({
+      ...values,
+      lastName: event.target.value,
+    }));
+  };
+
+  const handleEmailInputChange = (event) => {
+    event.persist();
+    setValues((values) => ({
+      ...values,
+      email: event.target.value,
+    }));
+  };
+
   return (
     <div class='form-container'>
       <form class='register-form'>
@@ -19,6 +44,7 @@ export default function App() {
           placeholder='First Name'
           name='firstName'
           value={values.firstName}
+          onChange={handleFirstNameInputChange}
         />
         {/* Uncomment the next line to show the error message */}
         {/* <span id="first-name-error">Please enter a first name</span> */}
@@ -29,6 +55,7 @@ export default function App() {
           placeholder='Last Name'
           name='lastName'
           value={values.lastName}
+          onChange={handleLastNameInputChange}
         />
         {/* Uncomment the next line to show the error message */}
         {/* <span id="last-name-error">Please enter a last name</span> */}
@@ -39,6 +66,7 @@ export default function App() {
           placeholder='Email'
           name='email'
           value={values.email}
+          onChange={handleEmailInputChange}
         />
         {/* Uncomment the next line to show the error message */}
         {/* <span id="email-error">Please enter an email address</span> */}
